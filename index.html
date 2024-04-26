@@ -1,125 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amazon Coupons and Deals</title>
-  <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-    }
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-    }
-    .coupon-list {
-        margin-top: 20px;
-    }
-    .coupon {
-        border: 1px solid #ccc;
-        padding: 10px;
-        margin-bottom: 10px;
-    }
-    .coupon h2 {
-        margin-top: 0;
-    }
-    .deal-of-the-day {
-        margin-top: 20px;
-    }
-    .deal {
-        border: 1px solid #ccc;
-        padding: 10px;
-        margin-bottom: 10px;
-    }
-    .deal h2 {
-        margin-top: 0;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coupons and Deals</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h1 {
+            margin-top: 0;
+        }
+        .coupon {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .coupon h2 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #007bff;
+        }
+        .coupon p {
+            margin: 10px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #007bff;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <h1>Coupons and Deals</h1>
+    </header>
     <div class="container">
-        <h1>Amazon Coupons and Deals</h1>
-        
-        <div class="coupon-list">
-            <h2>Coupons Available</h2>
-            <div class="coupon">
-                <h2>50% Off on Electronics</h2>
-                <p>Use code: ELEC50</p>
-                <p>Expires: April 30, 2024</p>
-            </div>
-            <div class="coupon">
-                <h2>20% Off on Home Goods</h2>
-                <p>Use code: HOME20</p>
-                <p>Expires: May 15, 2024</p>
-            </div>
+        <div class="coupon">
+            <h2>50% Off on Electronics</h2>
+            <p>Use code: ELEC50</p>
+            <p>Expires: April 30, 2024</p>
         </div>
-        
-        <div class="deal-of-the-day">
-            <h2>Deals of the Day</h2>
-            <div class="deal">
-                <h2>Smartphone - $100 Off</h2>
-                <p>Original Price: $599.99</p>
-                <p>Sale Price: $499.99</p>
-            </div>
-            <div class="deal">
-                <h2>Laptop - 30% Off</h2>
-                <p>Use code: LAPTOP30</p>
-                <p>Expires: April 28, 2024</p>
-            </div>
+        <div class="coupon">
+            <h2>20% Off on Home Goods</h2>
+            <p>Use code: HOME20</p>
+            <p>Expires: May 15, 2024</p>
         </div>
+        <!-- Add more coupons here -->
     </div>
-
-  <script>
-    // Function to fetch Amazon coupons
-    async function fetchAmazonCoupons() {
-      const response = await fetch('https://api.example.com/amazon/coupons');
-      const data = await response.json();
-      return data;
-    }
-
-    // Function to fetch Amazon deals of the day
-    async function fetchAmazonDealsOfTheDay() {
-      const response = await fetch('https://api.example.com/amazon/deals-of-the-day');
-      const data = await response.json();
-      return data;
-    }
-
-    // Function to display coupons
-    async function displayCoupons() {
-      const couponList = document.getElementById('coupon-list');
-      couponList.innerHTML = '';
-
-      const coupons = await fetchAmazonCoupons();
-
-      coupons.forEach(coupon => {
-        const li = document.createElement('li');
-        li.className = 'coupon-item';
-        li.textContent = `${coupon.title} - ${coupon.discount}`;
-        couponList.appendChild(li);
-      });
-    }
-
-    // Function to display deals of the day
-    async function displayDealsOfTheDay() {
-      const dealsList = document.getElementById('deals-list');
-      dealsList.innerHTML = '';
-
-      const deals = await fetchAmazonDealsOfTheDay();
-
-      deals.forEach(deal => {
-        const li = document.createElement('li');
-        li.className = 'deal-item';
-        li.textContent = `${deal.title} - ${deal.price}`;
-        dealsList.appendChild(li);
-      });
-    }
-
-    // Call functions to display coupons and deals
-    displayCoupons();
-    displayDealsOfTheDay();
-  </script>
+    <footer>
+        <p>&copy; 2024 Coupons and Deals. All rights reserved.</p>
+    </footer>
 </body>
 </html>
